@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical|center_horizontal"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/header_image"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:src="@drawable/user_photo"
+        android:contentDescription="Header Image"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/circle_bg"
+        android:clipToOutline="true" />
+
+    <TextView
+        android:id="@+id/header_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ad"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/header_text2"
+        android:fontFamily="@font/roboto_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Soyad"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="4dp"/>
+</LinearLayout>

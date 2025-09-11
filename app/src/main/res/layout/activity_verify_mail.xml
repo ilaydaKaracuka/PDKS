@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VerifyMailActivity"
+    android:background="@color/white">
+
+    <ImageButton
+        android:id="@+id/backLoginBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="20dp"
+        android:background="@null"
+        android:paddingLeft="10dp"
+        android:src="@drawable/icon_back" />
+
+    <TextView
+        android:id="@+id/text_verify_mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/backLoginBtn"
+        android:layout_alignTop="@id/backLoginBtn"
+        android:layout_marginLeft="36dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Şifre Sıfırlayın"
+        android:textColor="@color/black"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/verify_mail_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/backLoginBtn"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="21dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Lütfen sistemde kayıtlı e-posta adresinizi girin. Şifrenizi sıfırlamak için e-postanıza bir doğrulama kodu gönderilecektir."
+        android:textAlignment="viewStart"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/editTextEnterEmail"
+        android:layout_width="295dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/verify_mail_description"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/edittext_border"
+        android:fontFamily="@font/roboto_regular"
+        android:hint="E-posta adresiniz"
+
+        android:paddingLeft="10dp"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/verify_continue"
+        android:layout_width="295dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/editTextEnterEmail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="210dp"
+        android:backgroundTint="@color/mavi_buton"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Devam"
+        android:textColor="@color/black"
+        app:strokeColor="@color/mavi_buton_kenarlik"
+        app:strokeWidth="2dp"
+        android:textSize="24sp"
+        app:cornerRadius="10dp" />
+
+
+</RelativeLayout>

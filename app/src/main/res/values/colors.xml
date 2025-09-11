@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name ="kirmizi_buton">#E52022 </color>
+    <color name ="koyu_mavi_buton">#0090FF </color>
+    <color name ="gri_kutu">#D8DADC </color>
+    <color name ="mavi_buton">#90CAF9 </color>
+    <color name ="gri">#888888 </color>
+    <color name ="turuncu_buton">#FFD180 </color>
+    <color name ="yesil">#D2F4B9</color>
+    <color name ="kirmizi">#BC3E51</color>
+    <color name ="acik_kirmizi">#D06E7E</color>
+    <color name ="mavi_buton2">#56A6E9</color>
+
+    <color name ="gri_kenarlik">#3C3C3C</color>
+    <color name ="mavi_buton_kenarlik">#4D9EE2</color>
+    <color name ="turuncu_buton_kenarlik">#CC9C3D</color>
+    <color name ="turuncu_buton_selected">#996A0F</color>
+    <color name="acik_mavi">#c3e9ff</color>
+
+
+
+</resources>

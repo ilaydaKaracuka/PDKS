@@ -1,0 +1,111 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    tools:context=".RegisterActivity"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/app_icon"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/app_icon"
+        android:layout_marginBottom="54dp"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:id="@+id/id_ad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ad"
+        android:inputType="text"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gri"
+        android:background="@drawable/edittext_border"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/roboto_regular" />
+    <EditText
+        android:id="@+id/id_soyad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Soyad"
+        android:inputType="text"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gri"
+        android:background="@drawable/edittext_border"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/roboto_regular" />
+
+    <EditText
+        android:id="@+id/id_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gri"
+        android:background="@drawable/edittext_border"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/roboto_regular" />
+
+    <EditText
+        android:id="@+id/id_sifre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Şifre"
+        android:inputType="textPassword"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gri"
+        android:background="@drawable/edittext_border"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/roboto_regular" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/id_kayıtButon"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Kayıt Ol"
+        app:strokeColor="@color/mavi_buton_kenarlik"
+        app:strokeWidth="2dp"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/mavi_buton"
+        app:cornerRadius="10dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/roboto_bold" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zaten bir hesabın var mı?"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:fontFamily="@font/roboto_regular" />
+
+        <TextView
+            android:id="@+id/id_girisYap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Giriş Yap"
+            android:textSize="17sp"
+            android:textColor="@color/mavi_buton_kenarlik"
+            android:fontFamily="@font/roboto_bold" />
+    </LinearLayout>
+
+</LinearLayout>

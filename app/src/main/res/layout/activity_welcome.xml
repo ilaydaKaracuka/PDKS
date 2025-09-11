@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".WelcomeActivity">
+
+    <ImageView
+        android:id="@id/image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
+        android:adjustViewBounds="false"
+        android:scaleType="centerCrop"
+        android:src="@drawable/app_icon" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/kayitOlBtn"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="220dp"
+        android:backgroundTint="@color/mavi_buton"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Kayıt Ol"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:cornerRadius="10sp" />
+
+    <Button
+        android:id="@+id/girisYapBtn"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/kayitOlBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/turuncu_buton"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Giriş Yap"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:cornerRadius="10sp" />
+
+
+</RelativeLayout>
