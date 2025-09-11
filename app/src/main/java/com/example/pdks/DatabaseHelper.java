@@ -23,12 +23,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String SQL_CREATE_KAYITLAR =
             "CREATE TABLE " + DatabaseContract.KayitEntry.TABLE_NAME + " (" +
                     DatabaseContract.KayitEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    DatabaseContract.KayitEntry.COLUMN_NAME_ENTITY_ID + " TEXT UNIQUE," +
+                    DatabaseContract.KayitEntry.COLUMN_NAME_ENTITY_ID + " TEXT," +
                     DatabaseContract.KayitEntry.COLUMN_NAME_BLOK_ADI + " TEXT," +
                     DatabaseContract.KayitEntry.COLUMN_NAME_TARIH + " TEXT," +
                     DatabaseContract.KayitEntry.COLUMN_NAME_SAAT + " TEXT," +
                     DatabaseContract.KayitEntry.COLUMN_NAME_TIP + " TEXT," +
-                    DatabaseContract.KayitEntry.COLUMN_NAME_PHOTO + " BLOB)";
+                    DatabaseContract.KayitEntry.COLUMN_NAME_PHOTO + " BLOB," +
+                    "UNIQUE(" +
+                    DatabaseContract.KayitEntry.COLUMN_NAME_ENTITY_ID + ", " +
+                    DatabaseContract.KayitEntry.COLUMN_NAME_TARIH + ", " +
+                    DatabaseContract.KayitEntry.COLUMN_NAME_SAAT + "))";
+
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

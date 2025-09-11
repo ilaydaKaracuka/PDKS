@@ -1,9 +1,10 @@
 package com.example.pdks;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -16,11 +17,16 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import java.util.Random;
 
 public class LoginActivity extends AppCompatActivity {
+
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 100;
 
     private EditText etEntityId, etSifre;
     private Button btnLogin;
@@ -33,6 +39,15 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (!checkLocationPermission()) {
+            requestLocationPermission();
+        } else {
+            initViewsAndLogin();
+        }
+    }
+
+    private void initViewsAndLogin() {
         setContentView(R.layout.activity_login);
 
         etEntityId = findViewById(R.id.id_kullanici);
@@ -57,35 +72,32 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginActivity.this, VerifyMailActivity.class);
             startActivity(intent);
         });
+    }
 
-        Drawable mailIcon = getResources().getDrawable(R.drawable.mail_icon);
-        Drawable cardIcon = getResources().getDrawable(R.drawable.card_icon);
+    private boolean checkLocationPermission() {
+        return ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED;
+    }
 
-        mailIcon.setBounds(0, 0, 60, 60);
-        cardIcon.setBounds(0, 0, 80, 80);
+    private void requestLocationPermission() {
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                LOCATION_PERMISSION_REQUEST_CODE);
+    }
 
-        etEntityId.setCompoundDrawables(null, null, cardIcon, null);
-        etEntityId.setHint("Kullanıcı ID");
-        final boolean[] isMailLogin = {false};
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        etEntityId.setOnLongClickListener(v -> {
-            String[] options = {"E-Posta", "Kullanıcı ID"};
-            new androidx.appcompat.app.AlertDialog.Builder(LoginActivity.this)
-                    .setTitle("Giriş Türünü Seç")
-                    .setItems(options, (dialog, which) -> {
-                        if (which == 0) {
-                            etEntityId.setCompoundDrawables(null, null, mailIcon, null);
-                            etEntityId.setHint("E-Posta");
-                            isMailLogin[0] = true;
-                        } else {
-                            etEntityId.setCompoundDrawables(null, null, cardIcon, null);
-                            etEntityId.setHint("Kullanıcı ID");
-                            isMailLogin[0] = false;
-                        }
-                    })
-                    .show();
-            return true;
-        });
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                initViewsAndLogin();
+            } else {
+                Toast.makeText(this, "Konum izni olmadan uygulama kullanılamaz!", Toast.LENGTH_LONG).show();
+                finish();
+            }
+        }
     }
 
     private void attemptLogin() {
@@ -100,18 +112,16 @@ public class LoginActivity extends AppCompatActivity {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor;
 
-        Drawable currentIcon = etEntityId.getCompoundDrawables()[2];
-        boolean isMailLogin = currentIcon != null && currentIcon.getConstantState() ==
-                getResources().getDrawable(R.drawable.mail_icon).getConstantState();
+        boolean isEmail = input.contains("@");
 
-        if (isMailLogin) {
+        if (isEmail) {
             cursor = db.query(
                     DatabaseContract.KullaniciEntry.TABLE_NAME,
                     null,
                     DatabaseContract.KullaniciEntry.COLUMN_NAME_EMAIL + "=? AND " +
                             DatabaseContract.KullaniciEntry.COLUMN_NAME_SIFRE + "=?",
                     new String[]{input, sifre},
-                    null,null,null
+                    null, null, null
             );
         } else {
             cursor = db.query(
@@ -120,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
                     DatabaseContract.KullaniciEntry.COLUMN_NAME_ENTITY_ID + "=? AND " +
                             DatabaseContract.KullaniciEntry.COLUMN_NAME_SIFRE + "=?",
                     new String[]{input, sifre},
-                    null,null,null
+                    null, null, null
             );
         }
 
@@ -140,13 +150,13 @@ public class LoginActivity extends AppCompatActivity {
             showVerificationCard();
 
         } else {
-            if (isMailLogin) {
+            if (isEmail) {
                 Toast.makeText(this, "Hatalı E-Posta veya Şifre", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Hatalı ID veya Şifre", Toast.LENGTH_SHORT).show();
             }
 
-            if(cursor != null) cursor.close();
+            if (cursor != null) cursor.close();
             db.close();
         }
     }
@@ -160,7 +170,7 @@ public class LoginActivity extends AppCompatActivity {
 
         exitButton.setOnClickListener(v -> {
             String enteredCode = codeInput.getText().toString().trim();
-            if(enteredCode.equals(generatedCode)){
+            if (enteredCode.equals(generatedCode)) {
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 intent.putExtra("ENTITY_ID", userEntityId);
                 intent.putExtra("AD", userAd);
@@ -196,6 +206,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute(Boolean success) { }
+        protected void onPostExecute(Boolean success) {
+        }
     }
 }
