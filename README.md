@@ -1,6 +1,6 @@
 <p align="center">
-  <strong style="font-size: 96px;">PDKS</strong><br>
-  <img src="pdks_icon.png" alt="PDKS Logo" width="80">
+  <img src="pdks_icon.png" alt="PDKS Logo" width="80" style="vertical-align: middle; margin-right: 15px;">
+  <span style="font-size: 96px; font-weight: bold; vertical-align: middle;">PDKS</span>
 </p>
 
 PDKS, çalışanların fiziksel kart kullanmadan mobil cihazları üzerinden giriş ve çıkış işlemlerini gerçekleştirebildiği bir uygulamadır. Uygulama, konum doğrulama ve insan doğrulama ile güvenli bir şekilde kayıt yapılmasını sağlar.
@@ -25,4 +25,4 @@ PDKS, çalışanların fiziksel kart kullanmadan mobil cihazları üzerinden gir
 - Kamera ve ML Kit ile insan doğrulaması yapılır.  
 - VPN ve otomatik saat kontrolü ile kayıt güvenliği sağlanır.  
 - Menü üzerinden farklı ekranlara ve ayarlara erişim sağlanır.  
-- Şifre değiştirme ve kullanıcı doğrulama işlemleri uygulanır.  burda pdks yazısını büyüt readme için
+- Şifre değiştirme ve kullanıcı doğrulama işlemleri uygulanır.  
