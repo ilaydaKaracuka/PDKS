@@ -1,6 +1,6 @@
 <p align="center">
-  <h1>PDKS</h1>
-  <img src="pdks_icon.png" alt="PDKS Logo" width="80">
+  <img src="pdks_icon.png" alt="PDKS Logo" width="80"><br>
+  <span style="font-size: 72px; font-weight: bold;">PDKS</span>
 </p>
 
 PDKS, çalışanların fiziksel kart kullanmadan mobil cihazları üzerinden giriş ve çıkış işlemlerini gerçekleştirebildiği bir uygulamadır. Uygulama, konum doğrulama ve insan doğrulama ile güvenli bir şekilde kayıt yapılmasını sağlar.
