@@ -64,6 +64,7 @@ public class MapFragment extends Fragment {
     private FusedLocationProviderClient fusedLocationClient;
     private String entityId;
     private String type;
+    private boolean blocksAdded = false;
 
     private ActivityResultLauncher<Intent> cameraLauncher;
 
@@ -197,8 +198,10 @@ public class MapFragment extends Fragment {
         btnZoomIn.setOnClickListener(v -> mapView.getController().zoomIn());
         btnZoomOut.setOnClickListener(v -> mapView.getController().zoomOut());
 
-        addBlocks();
-
+        if (!blocksAdded) {
+            addBlocks();
+            blocksAdded = true;
+        }
         return root;
     }
 
@@ -389,10 +392,21 @@ public class MapFragment extends Fragment {
         if (newRowId != -1) {
             Toast.makeText(getContext(), "Kayıt başarıyla eklendi!", Toast.LENGTH_SHORT).show();
             Log.d("MapFragment", "Kayıt eklendi, id=" + newRowId);
+
+            for (Polygon c : blockCircles) {
+                c.setFillColor(Color.parseColor("#80BC3E51"));
+                c.setStrokeColor(Color.parseColor("#8E0000"));
+            }
+
+            btnSaveLocation.setEnabled(false);
+            btnSaveLocation.setBackgroundTintList(getResources().getColorStateList(R.color.acik_mavi));
+
+            mapView.invalidate();
         } else {
             Toast.makeText(getContext(), "Kayıt eklenemedi!", Toast.LENGTH_SHORT).show();
             Log.e("MapFragment", "Kayıt eklenemedi!");
         }
+
     }
 
     private boolean isVpnActive() {
