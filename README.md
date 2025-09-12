@@ -1,6 +1,5 @@
 <p align="center">
-  <span style="font-size:120px; font-weight:bold;">PDKS</span>
-  <br>
+  <h1>PDKS</h1>
   <img src="pdks_icon.png" alt="PDKS Logo" width="80">
 </p>
 
