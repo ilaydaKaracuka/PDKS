@@ -25,4 +25,7 @@ PDKS, çalışanların fiziksel kart kullanmadan mobil cihazları üzerinden gir
 - Kamera ve ML Kit ile insan doğrulaması yapılır.  
 - VPN ve otomatik saat kontrolü ile kayıt güvenliği sağlanır.  
 - Menü üzerinden farklı ekranlara ve ayarlara erişim sağlanır.  
-- Şifre değiştirme ve kullanıcı doğrulama işlemleri uygulanır. 
+- Şifre değiştirme ve kullanıcı doğrulama işlemleri uygulanır.  
+
+## 📄 Rapor
+Projenin detaylı raporuna buradan ulaşabilirsiniz: [pdks_rapor](./pdks_rapor.pdf)
